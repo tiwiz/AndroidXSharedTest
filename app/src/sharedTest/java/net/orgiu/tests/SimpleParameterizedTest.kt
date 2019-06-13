@@ -3,11 +3,13 @@ package net.orgiu.tests
 
 import android.app.Application
 import androidx.test.core.app.ApplicationProvider
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 
 @RunWith(Parameterized::class)
+//@RunWith(AndroidJUnit4::class)
 class SimpleParameterizedTest(val theInt: Int, val theString: String) {
 
     val context = ApplicationProvider.getApplicationContext<Application>()
