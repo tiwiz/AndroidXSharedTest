@@ -5,7 +5,7 @@
         android:id="@+id/sampleRoot"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".SnackbarActivity">
+        tools:context=".snackbar.SnackbarActivity">
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/sampleList"

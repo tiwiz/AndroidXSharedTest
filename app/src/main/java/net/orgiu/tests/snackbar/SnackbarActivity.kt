@@ -1,12 +1,10 @@
-package net.orgiu.tests
+package net.orgiu.tests.snackbar
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_snackbar.*
-import net.orgiu.tests.snackbar.SampleItemAdapter
-import net.orgiu.tests.snackbar.SnackbarManager
+import net.orgiu.tests.R
 
 class SnackbarActivity : AppCompatActivity() {
 
