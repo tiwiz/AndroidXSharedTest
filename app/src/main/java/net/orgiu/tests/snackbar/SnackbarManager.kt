@@ -39,19 +39,17 @@ class SnackbarManager private constructor(
 
     private fun setPaddingTo(height: Int, item: Int) {
         val lastItem = adapter.itemCount - 1
-        val lastVisibleItem = lManager.findLastCompletelyVisibleItemPosition()
 
-        if (lastItem == lastVisibleItem && item == lastItem) {
-            val set = ConstraintSet()
-            set.clone(constraintLayout)
-            set.setMargin(R.id.sampleList, ConstraintSet.BOTTOM, height)
-            set.applyTo(constraintLayout)
+        val set = ConstraintSet()
+        set.clone(constraintLayout)
+        set.setMargin(R.id.sampleList, ConstraintSet.BOTTOM, height)
+        set.applyTo(constraintLayout)
 
+        if (item == lastItem) {
             with(SmoothScroller(context)) {
                 targetPosition = lastItem
                 lManager.startSmoothScroll(this)
             }
-
         }
     }
 
