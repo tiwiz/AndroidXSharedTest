@@ -26,18 +26,18 @@ class SnackbarManager private constructor(
                 snackbar.addCallback(object : BaseTransientBottomBar.BaseCallback<Snackbar>() {
                     override fun onShown(transientBottomBar: Snackbar) {
                         super.onShown(transientBottomBar)
-                        setPaddingTo(transientBottomBar.view.height, item)
+                        updateMarginTo(transientBottomBar.view.height, item)
                     }
                 })
                     .setAction(android.R.string.ok) {
-                        setPaddingTo(0, item)
+                        updateMarginTo(0, item)
                         snackbar.dismiss()
                     }
                     .show()
             }
     }
 
-    private fun setPaddingTo(height: Int, item: Int) {
+    private fun updateMarginTo(height: Int, item: Int) {
         val lastItem = adapter.itemCount - 1
 
         val set = ConstraintSet()
