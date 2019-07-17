@@ -40,10 +40,11 @@ class SnackbarManager private constructor(
     private fun updateMarginTo(height: Int, item: Int) {
         val lastItem = adapter.itemCount - 1
 
-        val set = ConstraintSet()
-        set.clone(constraintLayout)
-        set.setMargin(R.id.sampleList, ConstraintSet.BOTTOM, height)
-        set.applyTo(constraintLayout)
+        ConstraintSet().run {
+            clone(constraintLayout)
+            setMargin(R.id.sampleList, ConstraintSet.BOTTOM, height)
+            applyTo(constraintLayout)
+        }
 
         if (item == lastItem) {
             with(SmoothScroller(context)) {
