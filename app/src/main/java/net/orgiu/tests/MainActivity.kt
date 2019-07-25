@@ -2,15 +2,14 @@ package net.orgiu.tests
 
 import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
-
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import net.orgiu.tests.snackbar.SnackbarActivity
 import net.orgiu.tests.textscaling.TextScalingActivity
+import net.orgiu.tests.textscaling.TextScalingDataBindingOnlyActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,8 +22,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SnackbarActivity::class.java))
         }
 
-        textscaling.setOnClickListener {
+        mixedTextScaling.setOnClickListener {
             startActivity(Intent(this, TextScalingActivity::class.java))
+        }
+
+        dataBindingOnlyTextScaling.setOnClickListener {
+            startActivity(Intent(this, TextScalingDataBindingOnlyActivity::class.java))
         }
     }
 

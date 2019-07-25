@@ -25,3 +25,10 @@ class TextScale(initialValue: Float = 1f) : MutableLiveData<Float>() {
         postValue(initialValue)
     }
 }
+
+class TextScaleInt(initialValue: Int = 1) : MutableLiveData<Int>() {
+
+    init {
+        postValue(initialValue)
+    }
+}

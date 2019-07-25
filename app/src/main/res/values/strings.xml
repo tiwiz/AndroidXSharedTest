@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Testing tests</string>
     <string name="action_settings">Settings</string>
+    <string name="mixed_text_scaling">Mixed text scaling</string>
+    <string name="snackbar_test">Snackbar test</string>
+    <string name="databinding_only_text_scaling">Databinding only text scaling</string>
 </resources>

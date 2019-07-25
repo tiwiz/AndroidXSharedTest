@@ -12,19 +12,28 @@
             android:id="@+id/snackbar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Snackbar test"
+            android:text="@string/snackbar_test"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-            android:id="@+id/textscaling"
+            android:id="@+id/mixedTextScaling"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Text scaling"
+            android:text="@string/mixed_text_scaling"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/snackbar" />
+
+    <Button
+            android:id="@+id/dataBindingOnlyTextScaling"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/databinding_only_text_scaling"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mixedTextScaling" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

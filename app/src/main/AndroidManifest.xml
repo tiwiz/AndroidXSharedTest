@@ -11,6 +11,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".textscaling.TextScalingDataBindingOnlyActivity"></activity>
         <activity android:name=".textscaling.TextScalingActivity" />
         <activity android:name=".snackbar.SnackbarActivity" />
         <activity
