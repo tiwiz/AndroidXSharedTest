@@ -10,6 +10,7 @@ import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import net.orgiu.tests.snackbar.SnackbarActivity
+import net.orgiu.tests.textscaling.TextScalingActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +21,10 @@ class MainActivity : AppCompatActivity() {
 
         snackbar.setOnClickListener {
             startActivity(Intent(this, SnackbarActivity::class.java))
+        }
+
+        textscaling.setOnClickListener {
+            startActivity(Intent(this, TextScalingActivity::class.java))
         }
     }
 
