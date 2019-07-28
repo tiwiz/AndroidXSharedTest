@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 interface FeedApi {
 
-    @GET
-    suspend fun fetch() : OpenFeed
+    @GET(UrlProvider.apiUrl)
+    suspend fun fetch(): OpenFeed
 }
