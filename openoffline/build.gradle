@@ -73,6 +73,10 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0-alpha02"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha02"
 
+    implementation 'com.jakewharton.threetenabp:threetenabp:1.2.0'
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+    implementation "com.squareup.picasso:picasso:2.71828"
+
     testImplementation 'junit:junit:4.12'
     testImplementation 'androidx.test:runner:1.2.0'
     testImplementation 'androidx.test.espresso:espresso-core:3.2.0'
