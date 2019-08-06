@@ -12,10 +12,14 @@ buildProperties {
 }
 
 android {
+
+    dataBinding {
+        enabled = true
+    }
+
     compileSdkVersion 29
     buildToolsVersion "29.0.1"
-
-
+    
     defaultConfig {
         applicationId "offline.open"
         minSdkVersion 23
@@ -92,6 +96,8 @@ dependencies {
 
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation"
     implementation "androidx.navigation:navigation-ui-ktx:$navigation"
+
+    implementation 'org.jsoup:jsoup:1.12.1'
 
     testImplementation 'junit:junit:4.12'
     testImplementation 'androidx.test:runner:1.2.0'
