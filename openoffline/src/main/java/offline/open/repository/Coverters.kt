@@ -1,22 +1,21 @@
 package offline.open.repository
 
 import androidx.room.TypeConverter
-import com.squareup.moshi.JsonAdapter
-import com.squareup.moshi.Moshi
+import kotlinx.serialization.UnstableDefault
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.list
+import kotlinx.serialization.serializer
 import org.threeten.bp.Instant
 
-private val moshi = Moshi.Builder().build()
 
-inline fun <reified T> Moshi.adapter(): JsonAdapter<T> = adapter<T>(T::class.java)
-
+@UnstableDefault
 class ListConverter {
-    private val adapter: JsonAdapter<List<String>> = moshi.adapter()
 
     @TypeConverter
-    fun toStringValue(v: List<String>): String = v.let { adapter.toJson(v) }
+    fun toStringValue(v: List<String>): String = v.let { Json.stringify(String.serializer().list, v) }
 
     @TypeConverter
-    fun fromString(s: String) = s.let { adapter.fromJson(s) }
+    fun fromString(s: String) = s.let { Json.parse(String.serializer().list, s) }
 }
 
 class InstantConverter {
