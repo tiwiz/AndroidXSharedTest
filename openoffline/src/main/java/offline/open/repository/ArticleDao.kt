@@ -9,14 +9,17 @@ import offline.open.models.ArticleDetails
 import offline.open.models.ArticleOverview
 
 @Dao
-abstract class ArticleDao {
+interface ArticleDao {
 
     @Query("SELECT article_id, title, author, thumbnail, description, timestamp FROM articles")
-    abstract suspend fun fetchOverview(): List<ArticleOverview>
+    suspend fun fetchOverview(): List<ArticleOverview>
+
+    @Query("SELECT * FROM articles")
+    suspend fun fetchOverview34(): List<ArticleData>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    abstract suspend fun insertArticles(articleData: List<ArticleData>): Int
+    suspend fun insertArticles(articleData: List<ArticleData>)
 
     @Query("SELECT title, author, thumbnail, content, link FROM articles WHERE article_id = :articleId")
-    abstract suspend fun fetchArticle(articleId: String): ArticleDetails
+    suspend fun fetchArticle(articleId: String): ArticleDetails
 }

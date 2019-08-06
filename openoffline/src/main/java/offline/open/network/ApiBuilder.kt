@@ -6,7 +6,7 @@ import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
 
-fun buildAPI(url: String) =
+fun buildAPI(url: String): FeedApi =
     Retrofit.Builder()
         .baseUrl(url)
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
