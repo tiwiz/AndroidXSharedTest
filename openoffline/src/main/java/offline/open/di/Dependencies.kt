@@ -2,10 +2,14 @@ package offline.open.di
 
 import android.app.Application
 import offline.open.BuildConfig
+import offline.open.models.LceDispatcher
+import offline.open.models.LceView
+import offline.open.models.Overview
 import offline.open.network.buildAPI
 import offline.open.repository.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
+import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
 
@@ -19,7 +23,7 @@ fun Application.injectDependencies() {
     }
 }
 
-fun fetchModules() = listOf(openModule)
+fun fetchModules() = listOf(openModule, overviewModule)
 
 val openModule = module {
 
@@ -30,4 +34,11 @@ val openModule = module {
     single { ArticleDatabase.build(get()).articleDao() }
 
     single<Repository> { OpenRepository(get(), get(), get()) }
+}
+
+val overviewModule = module {
+
+    single { (view: LceView<Overview>) -> LceDispatcher(view) }
+
+    viewModel { ArticleListViewModel(get()) }
 }
