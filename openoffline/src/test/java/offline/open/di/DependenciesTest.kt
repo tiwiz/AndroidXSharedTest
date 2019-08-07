@@ -5,6 +5,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.nhaarman.mockitokotlin2.mock
+import offline.open.common.DetailHandler
 import offline.open.models.LceView
 import offline.open.models.Overview
 import offline.open.models.OverviewDispatcher
@@ -24,6 +25,7 @@ class DependenciesTest : KoinTest {
 
     private val mockOverviewView: LceView<Overview> = mock()
     private val lifecycleOwner: LifecycleOwner = mock()
+    private val mockDetailHandler: DetailHandler = mock()
 
     @Test
     fun verify_dependency_injection() {
@@ -32,7 +34,7 @@ class DependenciesTest : KoinTest {
             modules(fetchModules())
         }.checkModules {
             create<OverviewDispatcher> { parametersOf(mockOverviewView) }
-            create<ArticleAdapter> { parametersOf(lifecycleOwner) }
+            create<ArticleAdapter> { parametersOf(lifecycleOwner, mockDetailHandler) }
         }
     }
 }

@@ -7,13 +7,15 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import offline.open.R
+import offline.open.common.DetailHandler
 import offline.open.databinding.OverviewListItemBinding
 import offline.open.models.ArticleOverview
 import offline.open.models.Overview
 
 class ArticleAdapter(
     context: Context,
-    private val lifecycleProvider: LifecycleOwner
+    private val lifecycleProvider: LifecycleOwner,
+    private val handler: DetailHandler
 ) : RecyclerView.Adapter<ArticleViewHolder>() {
 
     private val inflater = LayoutInflater.from(context)
@@ -34,7 +36,7 @@ class ArticleAdapter(
     override fun getItemCount() = items.size
 
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
-        holder.bindTo(items[position])
+        holder.bindTo(items[position], handler)
     }
 
     fun updateItems(overview: Overview) {

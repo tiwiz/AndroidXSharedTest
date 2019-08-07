@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.LifecycleOwner
 import kotlinx.serialization.UnstableDefault
 import offline.open.BuildConfig
+import offline.open.common.DetailHandler
 import offline.open.models.LceDispatcher
 import offline.open.models.LceView
 import offline.open.models.Overview
@@ -46,8 +47,8 @@ val overviewModule = module {
 
     single { (view: LceView<Overview>) -> LceDispatcher(view) }
 
-    single { (lifecycleOwner: LifecycleOwner) ->
-        ArticleAdapter(get(), lifecycleOwner)
+    single { (lifecycleOwner: LifecycleOwner, handler: DetailHandler) ->
+        ArticleAdapter(get(), lifecycleOwner, handler)
     }
 
     viewModel { ArticleListViewModel(get()) }
