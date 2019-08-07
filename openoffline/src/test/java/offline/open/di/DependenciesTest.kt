@@ -6,14 +6,13 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.nhaarman.mockitokotlin2.mock
 import offline.open.common.DetailHandler
-import offline.open.models.LceView
-import offline.open.models.Overview
-import offline.open.models.OverviewDispatcher
+import offline.open.models.*
 import offline.open.overview.ArticleAdapter
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.parameter.parametersOf
+import org.koin.core.qualifier.named
 import org.koin.dsl.koinApplication
 import org.koin.test.KoinTest
 import org.koin.test.check.checkModules

@@ -1,4 +1,4 @@
-package offline.open.repository
+package offline.open.overview
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -7,6 +7,7 @@ import offline.open.models.LceError
 import offline.open.models.LceLoading
 import offline.open.models.LceSuccess
 import offline.open.models.MutableOverview
+import offline.open.repository.Repository
 
 
 class ArticleListViewModel(private val repository: Repository) : ViewModel() {
