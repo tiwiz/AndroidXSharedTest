@@ -4,6 +4,7 @@ import android.app.Application
 import com.jakewharton.threetenabp.AndroidThreeTen
 import offline.open.common.initTools
 import offline.open.di.injectDependencies
+import offline.open.repository.UpdateManager
 
 class OpenApp : Application() {
 
@@ -12,5 +13,7 @@ class OpenApp : Application() {
         AndroidThreeTen.init(this)
         injectDependencies()
         initTools()
+
+        UpdateManager().scheduleUpdateJobs(this)
     }
 }

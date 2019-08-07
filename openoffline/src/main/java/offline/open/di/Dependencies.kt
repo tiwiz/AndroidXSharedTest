@@ -2,6 +2,7 @@ package offline.open.di
 
 import android.app.Application
 import androidx.lifecycle.LifecycleOwner
+import kotlinx.serialization.UnstableDefault
 import offline.open.BuildConfig
 import offline.open.models.LceDispatcher
 import offline.open.models.LceView
@@ -27,6 +28,7 @@ fun Application.injectDependencies() {
 
 fun fetchModules() = listOf(openModule, overviewModule)
 
+@UnstableDefault
 val openModule = module {
 
     single { buildAPI(BuildConfig.API_ENDPOINT) }
@@ -35,7 +37,9 @@ val openModule = module {
 
     single { ArticleDatabase.build(get()).articleDao() }
 
-    single<Repository> { OpenRepository(get(), get(), get()) }
+    single { FeedUpdater(get(), get(), get()) }
+
+    single<Repository> { OpenRepository(get(), get()) }
 }
 
 val overviewModule = module {

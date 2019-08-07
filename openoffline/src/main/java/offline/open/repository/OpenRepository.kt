@@ -3,21 +3,15 @@ package offline.open.repository
 import offline.open.models.ArticleData
 import offline.open.models.ArticleDetails
 import offline.open.models.ArticleOverview
-import offline.open.models.OpenFeed
-import offline.open.network.FeedApi
 
 class OpenRepository(
-    private val api: FeedApi,
     private val dao: ArticleDao,
-    private val parser: FeedParser
+    private val feedUpdater: FeedUpdater
 ) : Repository {
 
     override suspend fun updateContent() {
-        api.fetch().parse().writeOnDb()
+        feedUpdater.updateContent()
     }
-
-    private fun OpenFeed.parse() =
-        parser.parse(this)
 
     private suspend fun List<ArticleData>.writeOnDb() =
         dao.insertArticles(this)
