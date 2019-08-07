@@ -8,7 +8,9 @@ class ArticleViewHolder(private val binding: OverviewListItemBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
     fun bindTo(articleOverview: ArticleOverview) {
-        binding.article = articleOverview
-//        binding.executePendingBindings()
+        with(binding) {
+            article = articleOverview
+            executePendingBindings()
+        }
     }
 }

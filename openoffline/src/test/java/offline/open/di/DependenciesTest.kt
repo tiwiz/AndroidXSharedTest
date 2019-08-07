@@ -32,7 +32,7 @@ class DependenciesTest : KoinTest {
             modules(fetchModules())
         }.checkModules {
             create<OverviewDispatcher> { parametersOf(mockOverviewView) }
-            create<ArticleAdapter> { parametersOf(context, lifecycleOwner)}
+            create<ArticleAdapter> { parametersOf(lifecycleOwner) }
         }
     }
 }

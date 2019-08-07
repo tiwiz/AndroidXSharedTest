@@ -4,6 +4,7 @@ import offline.open.models.ArticleData
 import offline.open.models.Item
 import offline.open.models.OpenFeed
 import offline.open.repository.TimestampParser.extractTimestamp
+import org.jsoup.Jsoup
 
 class FeedParser {
 
@@ -17,7 +18,7 @@ class FeedParser {
             link = link,
             author = author,
             thumbnail = thumbnail,
-            description = description,
+            description = Jsoup.parse(description).selectFirst("p").text(),
             content = content,
             categories = categories,
             timestamp = extractTimestamp(pubDate)

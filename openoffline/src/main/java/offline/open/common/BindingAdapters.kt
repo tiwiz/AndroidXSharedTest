@@ -47,12 +47,4 @@ object BindingAdapters {
             textView.text = formatter.format(timestamp)
         }
     }
-
-    @BindingAdapter("strippedHtml")
-    @JvmStatic
-    fun strippedHtml(textView: TextView, html: String?) {
-        html?.let {
-            textView.text = Jsoup.parse(html).selectFirst("p").text()
-        }
-    }
 }

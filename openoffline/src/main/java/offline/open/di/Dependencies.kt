@@ -1,7 +1,6 @@
 package offline.open.di
 
 import android.app.Application
-import android.content.Context
 import androidx.lifecycle.LifecycleOwner
 import offline.open.BuildConfig
 import offline.open.models.LceDispatcher
@@ -43,11 +42,8 @@ val overviewModule = module {
 
     single { (view: LceView<Overview>) -> LceDispatcher(view) }
 
-    single { (context: Context, lifecycleOwner: LifecycleOwner) ->
-        ArticleAdapter(
-            context,
-            lifecycleOwner
-        )
+    single { (lifecycleOwner: LifecycleOwner) ->
+        ArticleAdapter(get(), lifecycleOwner)
     }
 
     viewModel { ArticleListViewModel(get()) }

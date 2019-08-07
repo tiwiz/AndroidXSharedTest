@@ -20,12 +20,7 @@ class OverviewFragment : Fragment(), LceView<Overview> {
 
     private val dispatcher: OverviewDispatcher by inject { parametersOf(this) }
     private val viewModel: ArticleListViewModel by viewModel()
-    private val articleAdapter: ArticleAdapter by inject {
-        parametersOf(
-            requireContext(),
-            viewLifecycleOwner
-        )
-    }
+    private val articleAdapter: ArticleAdapter by inject { parametersOf(viewLifecycleOwner) }
 
     override fun onCreateView(
         inflater: LayoutInflater,

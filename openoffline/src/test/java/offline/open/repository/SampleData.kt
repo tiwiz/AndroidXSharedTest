@@ -15,7 +15,7 @@ object SampleData {
         guid = "https://www.open.online/?p=1",
         author = "autore autore",
         thumbnail = "http://image.jpg",
-        description = "Lorem Ipsum",
+        description = "<p>Lorem Ipsum</p><p>L'articolo...</p><p>...</p>",
         content = "Lorem Ipsum Dolor Sit Amet",
         categories = listOf("categoria1", "categoria2")
     )
