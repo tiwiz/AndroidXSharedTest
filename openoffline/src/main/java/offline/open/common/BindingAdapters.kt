@@ -1,12 +1,14 @@
 package offline.open.common
 
+import android.os.Build.VERSION.SDK_INT
+import android.os.Build.VERSION_CODES.N
+import android.text.Html
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.squareup.picasso.Picasso
-import org.jsoup.Jsoup
 import org.threeten.bp.Instant
 import org.threeten.bp.ZoneId
 import org.threeten.bp.format.DateTimeFormatter
@@ -45,6 +47,19 @@ object BindingAdapters {
         timestamp?.let {
             //TODO Move to tests
             textView.text = formatter.format(timestamp)
+        }
+    }
+
+    @BindingAdapter("html")
+    @JvmStatic
+    fun html(textView: TextView, html: String?) {
+        html?.let {
+            if (SDK_INT >= N) {
+                textView.text = Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY)
+            } else {
+                @Suppress("DEPRECATION")
+                textView.text = Html.fromHtml(html)
+            }
         }
     }
 }
