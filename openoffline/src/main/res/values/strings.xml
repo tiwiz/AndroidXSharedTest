@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Open.Offline</string>
+    <string name="header">Header</string>
 </resources>
