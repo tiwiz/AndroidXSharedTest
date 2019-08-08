@@ -6,6 +6,7 @@ import kotlinx.serialization.UnstableDefault
 import offline.open.BuildConfig
 import offline.open.common.DetailHandler
 import offline.open.detail.DetailViewModel
+import offline.open.detail.ShareProvider
 import offline.open.models.LceDispatcher
 import offline.open.models.LceView
 import offline.open.models.Overview
@@ -61,4 +62,6 @@ val overviewModule = module {
 val detailModule = module {
 
     viewModel { DetailViewModel(get()) }
+
+    factory { ShareProvider() }
 }

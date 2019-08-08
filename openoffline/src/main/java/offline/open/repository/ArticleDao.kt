@@ -8,7 +8,7 @@ import offline.open.models.ArticleOverview
 @Dao
 interface ArticleDao {
 
-    @Query("SELECT article_id, title, author, thumbnail, description, timestamp FROM articles")
+    @Query("SELECT article_id, title, author, thumbnail, description, timestamp FROM articles ORDER BY timestamp DESC")
     suspend fun fetchOverview(): List<ArticleOverview>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
