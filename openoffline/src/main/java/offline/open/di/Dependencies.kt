@@ -36,7 +36,9 @@ val openModule = module {
 
     single { buildAPI(BuildConfig.API_ENDPOINT) }
 
-    single { FeedParser() }
+    single { StyleWrapper() }
+
+    single { FeedParser(get()) }
 
     single { ArticleDatabase.build(get()).articleDao() }
 
@@ -48,12 +50,6 @@ val openModule = module {
 val overviewModule = module {
 
     factory { (view: LceView<Overview>) -> LceDispatcher(view) }
-
-//    scope(named<OverviewFragment>()) {
-//        scoped { (lifecycleOwner: LifecycleOwner, handler: DetailHandler) ->
-//            ArticleAdapter(get(), lifecycleOwner, handler)
-//        }
-//    }
 
     factory { (lifecycleOwner: LifecycleOwner, handler: DetailHandler) ->
         ArticleAdapter(get(), lifecycleOwner, handler)

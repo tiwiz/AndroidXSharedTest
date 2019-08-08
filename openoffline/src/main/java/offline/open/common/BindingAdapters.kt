@@ -1,10 +1,8 @@
 package offline.open.common
 
-import android.os.Build.VERSION.SDK_INT
-import android.os.Build.VERSION_CODES.N
-import android.text.Html
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.webkit.WebView
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
@@ -52,14 +50,10 @@ object BindingAdapters {
 
     @BindingAdapter("html")
     @JvmStatic
-    fun html(textView: TextView, html: String?) {
+    fun html(webView: WebView, html: String?) {
         html?.let {
-            if (SDK_INT >= N) {
-                textView.text = Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY)
-            } else {
-                @Suppress("DEPRECATION")
-                textView.text = Html.fromHtml(html)
-            }
+
+            webView.loadData(html, "text/html; charset=UTF-8", null)
         }
     }
 }

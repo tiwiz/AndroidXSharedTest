@@ -112,6 +112,8 @@ dependencies {
 
     implementation "androidx.work:work-runtime-ktx:$work_version"
 
+    implementation 'me.saket:better-link-movement-method:2.2.0'
+
     testImplementation 'junit:junit:4.12'
     testImplementation 'androidx.test:runner:1.2.0'
     testImplementation 'androidx.test.espresso:espresso-core:3.2.0'

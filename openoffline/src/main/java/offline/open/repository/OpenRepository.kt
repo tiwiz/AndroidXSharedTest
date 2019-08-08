@@ -1,6 +1,5 @@
 package offline.open.repository
 
-import offline.open.models.ArticleData
 import offline.open.models.ArticleDetails
 import offline.open.models.ArticleOverview
 
