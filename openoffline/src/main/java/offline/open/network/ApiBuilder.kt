@@ -1,6 +1,5 @@
 package offline.open.network
 
-import com.facebook.flipper.plugins.network.FlipperOkhttpInterceptor
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.UnstableDefault
@@ -26,7 +25,6 @@ private fun jsonFactory() =
 
 private fun okHttpClient() =
     OkHttpClient.Builder()
-        .addNetworkInterceptor(FlipperOkhttpInterceptor())
         .addInterceptor(loggingInterceptor())
         .build()
 

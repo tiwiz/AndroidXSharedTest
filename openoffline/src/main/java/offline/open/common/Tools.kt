@@ -23,7 +23,6 @@ private fun Application.enableFlipper() {
         with(AndroidFlipperClient.getInstance(this)) {
             val context = this@enableFlipper
             addPlugin(InspectorFlipperPlugin(context, DescriptorMapping.withDefaults()))
-            addPlugin(NetworkFlipperPlugin())
             addPlugin(DatabasesFlipperPlugin(context))
             start()
         }

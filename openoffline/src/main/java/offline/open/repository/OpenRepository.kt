@@ -13,9 +13,6 @@ class OpenRepository(
         feedUpdater.updateContent()
     }
 
-    private suspend fun List<ArticleData>.writeOnDb() =
-        dao.insertArticles(this)
-
     override suspend fun getOverview(): List<ArticleOverview> {
         val actual = dao.fetchOverview()
         return if (actual.isEmpty()) {
