@@ -22,6 +22,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="2dp"
             android:layout_marginBottom="4dp"
+            app:cardBackgroundColor="@color/cardview_background"
             app:cardCornerRadius="2dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -70,6 +71,7 @@
                     android:fontFamily="serif"
                     android:maxLines="4"
                     android:text="@{article.description}"
+                    android:textColor="@color/subtitleColor"
                     app:layout_constraintEnd_toEndOf="@id/title"
                     app:layout_constraintStart_toStartOf="@id/title"
                     app:layout_constraintTop_toBottomOf="@id/title"
