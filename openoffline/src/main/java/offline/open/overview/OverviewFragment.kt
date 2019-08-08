@@ -1,12 +1,14 @@
 package offline.open.overview
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.overview_fragment.*
 import offline.open.R
@@ -16,8 +18,10 @@ import offline.open.models.LceView
 import offline.open.models.Overview
 import offline.open.models.OverviewDispatcher
 import org.koin.android.ext.android.inject
+import org.koin.android.scope.currentScope
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
+import java.util.logging.Logger
 
 class OverviewFragment : Fragment(), LceView<Overview>, DetailHandler {
 
@@ -59,6 +63,8 @@ class OverviewFragment : Fragment(), LceView<Overview>, DetailHandler {
 
     override fun onArticleSelected(articleId: String) {
         val arguments = bundleOf(ARTICLE_ID to articleId)
-        findNavController().navigate(R.id.detailFragment, arguments)
+
+        view?.findNavController()?.navigate(R.id.detailFragment, arguments) ?:
+        Toast.makeText(requireContext(), "View is null!", Toast.LENGTH_SHORT).show()
     }
 }
