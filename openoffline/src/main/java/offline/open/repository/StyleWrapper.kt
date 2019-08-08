@@ -14,7 +14,11 @@ class StyleWrapper {
                           color: rgb(170, 167, 167);
                           font-family: 'Roboto Slab', serif;
                         }
-                        
+                        img {
+                            display: inline;
+                            height: auto;
+                            max-width: 100%;
+                        }
                         a {
                           color: rgb(255, 255, 255);
                         }

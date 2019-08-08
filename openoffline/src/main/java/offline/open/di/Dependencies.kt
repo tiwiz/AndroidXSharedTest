@@ -38,13 +38,13 @@ val openModule = module {
 
     single { StyleWrapper() }
 
-    single { FeedParser(get()) }
+    single { FeedParser() }
 
     single { ArticleDatabase.build(get()).articleDao() }
 
     single { FeedUpdater(get(), get(), get()) }
 
-    single<Repository> { OpenRepository(get(), get()) }
+    single<Repository> { OpenRepository(get(), get(), get()) }
 }
 
 val overviewModule = module {

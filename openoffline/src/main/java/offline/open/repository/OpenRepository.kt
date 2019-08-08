@@ -5,7 +5,8 @@ import offline.open.models.ArticleOverview
 
 class OpenRepository(
     private val dao: ArticleDao,
-    private val feedUpdater: FeedUpdater
+    private val feedUpdater: FeedUpdater,
+    private val styleWrapper: StyleWrapper
 ) : Repository {
 
     override suspend fun updateContent() {
@@ -23,6 +24,9 @@ class OpenRepository(
     }
 
     override suspend fun getArticleDetails(articleId: String): ArticleDetails =
-        dao.fetchArticle(articleId)
+        dao.fetchArticle(articleId).let {
+            val wrappedContent = styleWrapper.wrapIntoStyle(it.content)
+            it.copy(content = wrappedContent)
+        }
 
 }

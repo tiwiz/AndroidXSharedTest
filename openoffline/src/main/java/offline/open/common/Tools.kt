@@ -1,6 +1,8 @@
 package offline.open.common
 
 import android.app.Application
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import com.facebook.flipper.android.AndroidFlipperClient
 import com.facebook.flipper.android.utils.FlipperUtils
 import com.facebook.flipper.plugins.databases.DatabasesFlipperPlugin
@@ -25,6 +27,14 @@ private fun Application.enableFlipper() {
             addPlugin(InspectorFlipperPlugin(context, DescriptorMapping.withDefaults()))
             addPlugin(DatabasesFlipperPlugin(context))
             start()
+        }
+    }
+}
+
+inline fun WebView.onLoadingComplete(crossinline callback: (WebView) -> Unit) {
+    webViewClient = object: WebViewClient() {
+        override fun onLoadResource(view: WebView, url: String?) {
+            callback(view)
         }
     }
 }
