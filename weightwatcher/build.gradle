@@ -52,6 +52,8 @@ dependencies {
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
     implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.github.michaldrabik:classicmaterialtimepicker:1.0.0'
+    implementation 'com.alex-zaitsev:meternumberpicker:1.0.5'
 
     implementation 'com.vivekkaushik.datepicker:datePickerTimeline:0.0.3'
 

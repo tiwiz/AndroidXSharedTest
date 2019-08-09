@@ -17,4 +17,21 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="MeterNumberPickerStyle">
+        <item name="mnp_min">0</item>
+        <item name="mnp_max">9</item>
+        <item name="mnp_textColor">@android:color/black</item>
+        <item name="mnp_textSize">50sp</item>
+        <item name="mnp_paddingHorizontal">5dp</item>
+        <item name="mnp_paddingVertical">25dp</item>
+    </style>
+
+    <style name="MeterViewStyle">
+        <item name="mv_firstColor">@android:color/transparent</item>
+        <item name="mv_numberOfFirst">3</item>
+        <item name="mv_numberOfSecond">2</item>
+        <item name="mv_pickerStyle">@style/MeterNumberPickerStyle</item>
+        <item name="mv_secondColor">#A1F44336</item>
+    </style>
+
 </resources>
