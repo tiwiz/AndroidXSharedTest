@@ -8,16 +8,10 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.squareup.picasso.Picasso
 import org.threeten.bp.Instant
-import org.threeten.bp.ZoneId
-import org.threeten.bp.format.DateTimeFormatter
-import org.threeten.bp.format.FormatStyle
-import java.util.*
 
 object BindingAdapters {
 
-    private val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)
-        .withLocale(Locale.ITALY)
-        .withZone(ZoneId.systemDefault())
+    private val formatter = TimestampFormatter()
 
     @BindingAdapter("imageUrl")
     @JvmStatic
@@ -43,7 +37,6 @@ object BindingAdapters {
     @JvmStatic
     fun timestamp(textView: TextView, timestamp: Instant?) {
         timestamp?.let {
-            //TODO Move to tests
             textView.text = formatter.format(timestamp)
         }
     }
