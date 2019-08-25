@@ -1,12 +1,11 @@
 package offline.open.repository
 
-import offline.open.models.ArticleData
-import offline.open.models.Feed
-import offline.open.models.Item
-import offline.open.models.OpenFeed
+import offline.open.models.*
 import org.threeten.bp.Instant
 
 object SampleData {
+
+    private val styleWrapper = StyleWrapper()
 
     val feedArticle1 = Item(
         title = "Titolo 1",
@@ -46,4 +45,26 @@ object SampleData {
         categories = listOf("categoria1", "categoria2"),
         timestamp = Instant.ofEpochSecond(1564481288)
     )
+
+    val dbArticleOverview = ArticleOverview(
+        articleId = "https://www.open.online/?p=1",
+        title = "Titolo 1",
+        author = "autore autore",
+        thumbnail = "http://image.jpg",
+        description = "Lorem Ipsum",
+        timestamp = Instant.ofEpochSecond(1564481288)
+    )
+
+    val unstyledArticleDetails = ArticleDetails(
+        title = "Titolo 1",
+        author = "autore autore",
+        thumbnail = "http://image.jpg",
+        content = "Lorem Ipsum Dolor Sit Amet",
+        link = "http://open.online/titolo_1"
+    )
+
+    val styledArticleDetails: ArticleDetails
+        get() = unstyledArticleDetails.copy(
+            content = styleWrapper.wrapIntoStyle(unstyledArticleDetails.content)
+        )
 }
