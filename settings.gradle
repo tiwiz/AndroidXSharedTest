@@ -1,1 +1,1 @@
-include ':app', ':openoffline', ':weightwatcher'
+include ':app', ':openoffline', ':weightwatcher', ':branchview'
