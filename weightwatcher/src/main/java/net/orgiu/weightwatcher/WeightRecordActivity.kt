@@ -1,17 +1,21 @@
 package net.orgiu.weightwatcher
 
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.michaldrabik.classicmaterialtimepicker.CmtpDialogFragment
 import com.michaldrabik.classicmaterialtimepicker.utilities.setOnTime24PickedListener
+import com.thesaurus.branchview.Configuration
+import com.thesaurus.branchview.ConfigurationProvider
+import com.thesaurus.branchview.MessageProvider
 import com.vivekkaushik.datepicker.OnDateSelectedListener
 import kotlinx.android.synthetic.main.activity_weight_record.*
 import org.threeten.bp.Instant
 import org.threeten.bp.LocalDateTime
 import org.threeten.bp.ZoneOffset
 
-class WeightRecordActivity : AppCompatActivity() {
+class WeightRecordActivity : AppCompatActivity(), ConfigurationProvider, MessageProvider {
 
     private val weightRepository by lazy { WeightRepository(this) }
 
@@ -87,4 +91,10 @@ class WeightRecordActivity : AppCompatActivity() {
         val items = text.split(":").map { it.toInt() }
         return items[0] to items[1]
     }
+
+    override fun provideConfiguration(): Configuration =
+        Configuration(textColor = Color.GREEN)
+
+    override fun provideMessage(): String =
+        "WeightRecordActivity"
 }

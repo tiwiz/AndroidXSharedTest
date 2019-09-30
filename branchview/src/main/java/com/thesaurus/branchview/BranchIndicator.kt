@@ -6,9 +6,11 @@ import android.os.Bundle
 import android.view.ViewGroup
 import android.widget.FrameLayout
 
-class BranchIndicator private constructor(app: Application,
-                                          private val message: String,
-                                          private val configuration: Configuration) : Application.ActivityLifecycleCallbacks by DefaultActivityLifecycleCallbacksDelegate() {
+class BranchIndicator private constructor(
+    app: Application,
+    private val defaultMessage: String,
+    private val defaultConfig: Configuration
+) : Application.ActivityLifecycleCallbacks by DefaultActivityLifecycleCallbacksDelegate() {
 
     init {
         app.registerActivityLifecycleCallbacks(this)
@@ -16,24 +18,52 @@ class BranchIndicator private constructor(app: Application,
 
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
 
-        val decorView =  activity.window.decorView as ViewGroup
+
+        val config = provideConfig(activity)
+
+        if (config.shouldShow) {
+            showUi(activity, config)
+        }
+
+    }
+
+    private fun showUi(activity: Activity, config: Configuration) {
+
+        val decorView = activity.window.decorView as ViewGroup
 
         val messageView = DebugBranchView(activity).apply {
-            updateConfiguration(configuration)
-            updateMessage(message)
+            updateConfiguration(config)
+            updateMessage(provideMessage(activity))
         }
-        val params = FrameLayout.LayoutParams(500, 500).apply {
-            leftMargin = activity.screenWidth - 500
+
+        val params = FrameLayout.LayoutParams(activity.screenWidth, 500).apply {
             topMargin = activity.screenHeight - 500
         }
 
         decorView.addView(messageView, params)
-
     }
+
+    private fun provideConfig(activity: Activity) =
+        if (activity is ConfigurationProvider) {
+            activity.provideConfiguration()
+        } else {
+            defaultConfig
+        }
+
+    private fun provideMessage(activity: Activity) =
+        if (activity is MessageProvider) {
+            activity.provideMessage()
+        } else {
+            defaultMessage
+        }
 
     companion object {
 
-        fun attachTo(application: Application, message: String, configuration: Configuration = Configuration()) {
+        fun attachTo(
+            application: Application,
+            message: String,
+            configuration: Configuration = Configuration()
+        ) {
             BranchIndicator(application, message, configuration)
         }
     }
