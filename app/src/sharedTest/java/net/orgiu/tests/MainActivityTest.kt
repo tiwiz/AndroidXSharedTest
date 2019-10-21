@@ -17,6 +17,6 @@ class MainActivityTest {
     fun simple_test() {
         ActivityScenario.launch(MainActivity::class.java)
 
-        onView(withId(R.id.fab)).check(matches(isDisplayed()))
+        onView(withId(R.id.snackbar)).check(matches(isDisplayed()))
     }
 }
