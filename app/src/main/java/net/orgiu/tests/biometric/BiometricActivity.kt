@@ -28,7 +28,7 @@ class BiometricActivity : AppCompatActivity() {
     private fun runAuthentication() {
         lifecycleScope.launch {
             try {
-                authenticate(buildPromptInfo(), Dispatchers.IO)
+                authenticate(buildPromptInfo())
                 Snackbar.make(contentView, "Authenticated!", Snackbar.LENGTH_SHORT).show()
             } catch (e: BiometricException) {
                 Snackbar.make(contentView, e.toString(), Snackbar.LENGTH_SHORT).show()

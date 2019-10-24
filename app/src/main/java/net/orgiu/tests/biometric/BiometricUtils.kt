@@ -34,7 +34,7 @@ fun AppCompatActivity.buildBiometricPrompt(
 
 suspend fun AppCompatActivity.authenticate(
     info: BiometricPrompt.PromptInfo,
-    dispatcher: CoroutineDispatcher = Dispatchers.IO
+    dispatcher: CoroutineDispatcher = Dispatchers.Default
 ) =
     suspendCancellableCoroutine<Unit> { continuation ->
         buildBiometricPrompt(
@@ -49,7 +49,11 @@ suspend fun AppCompatActivity.authenticate(
             },
             failure = { continuation.resumeWithException(BiometricFailure()) },
             dispatcher = dispatcher
-        ).authenticate(info)
+        ).apply {
+            continuation.invokeOnCancellation {
+                cancelAuthentication()
+            }
+        }.authenticate(info)
     }
 
 sealed class BiometricException : Exception()
