@@ -7,6 +7,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import net.orgiu.tests.biometric.BiometricActivity
 import net.orgiu.tests.snackbar.SnackbarActivity
 import net.orgiu.tests.textscaling.TextScalingActivity
 import net.orgiu.tests.textscaling.TextScalingDataBindingOnlyActivity
@@ -28,6 +29,10 @@ class MainActivity : AppCompatActivity() {
 
         dataBindingOnlyTextScaling.setOnClickListener {
             startActivity(Intent(this, TextScalingDataBindingOnlyActivity::class.java))
+        }
+
+        biometricPrompt.setOnClickListener {
+            startActivity(Intent(this, BiometricActivity::class.java))
         }
     }
 

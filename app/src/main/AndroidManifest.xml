@@ -3,6 +3,8 @@
         xmlns:tools="http://schemas.android.com/tools"
         package="net.orgiu.tests">
 
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -11,7 +13,8 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".textscaling.TextScalingDataBindingOnlyActivity"></activity>
+        <activity android:name=".biometric.BiometricActivity"/>
+        <activity android:name=".textscaling.TextScalingDataBindingOnlyActivity" />
         <activity android:name=".textscaling.TextScalingActivity" />
         <activity android:name=".snackbar.SnackbarActivity" />
         <activity
