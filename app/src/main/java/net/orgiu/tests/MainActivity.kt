@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import net.orgiu.tests.biometric.BiometricActivity
+import net.orgiu.tests.networkrequest.NetworkRequestActivity
 import net.orgiu.tests.snackbar.SnackbarActivity
 import net.orgiu.tests.textscaling.TextScalingActivity
 import net.orgiu.tests.textscaling.TextScalingDataBindingOnlyActivity
@@ -33,6 +34,10 @@ class MainActivity : AppCompatActivity() {
 
         biometricPrompt.setOnClickListener {
             startActivity(Intent(this, BiometricActivity::class.java))
+        }
+
+        networkRequestBuilder.setOnClickListener {
+            startActivity(Intent(this, NetworkRequestActivity::class.java))
         }
     }
 

@@ -39,10 +39,19 @@
             android:id="@+id/biometricPrompt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Biometric Prompt"
+            android:text="@string/biometric_prompt"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dataBindingOnlyTextScaling" />
+
+    <Button
+            android:id="@+id/networkRequestBuilder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/network_request_builder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/biometricPrompt" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
