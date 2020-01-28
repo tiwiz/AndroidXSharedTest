@@ -53,5 +53,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/biometricPrompt" />
 
+    <Button
+            android:id="@+id/fullscreenWebViewVideo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/fullscreen_webview_video"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/networkRequestBuilder" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

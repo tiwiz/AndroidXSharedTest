@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import net.orgiu.tests.biometric.BiometricActivity
+import net.orgiu.tests.fullscreenvideo.WebViewActivity
 import net.orgiu.tests.networkrequest.NetworkRequestActivity
 import net.orgiu.tests.snackbar.SnackbarActivity
 import net.orgiu.tests.textscaling.TextScalingActivity
@@ -38,6 +39,10 @@ class MainActivity : AppCompatActivity() {
 
         networkRequestBuilder.setOnClickListener {
             startActivity(Intent(this, NetworkRequestActivity::class.java))
+        }
+
+        fullscreenWebViewVideo.setOnClickListener {
+            startActivity(Intent(this, WebViewActivity::class.java))
         }
     }
 
