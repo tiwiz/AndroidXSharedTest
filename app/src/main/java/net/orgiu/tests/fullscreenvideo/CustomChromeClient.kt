@@ -8,7 +8,7 @@ import android.webkit.WebView
 class CustomChromeClient(private val container: ViewGroup,
                          private val webView: WebView) : WebChromeClient() {
 
-    private var callback: WebChromeClient.CustomViewCallback? = null
+    private var callback: CustomViewCallback? = null
 
     override fun onShowCustomView(
         view: View?,

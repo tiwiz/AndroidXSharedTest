@@ -9,6 +9,8 @@ import net.orgiu.tests.R
 
 class WebViewActivity : AppCompatActivity() {
 
+    private val chromeClient by lazy { HackyChromeClient(this) }
+
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,8 +24,8 @@ class WebViewActivity : AppCompatActivity() {
 
         with(webView) {
             webViewClient = CustomWebViewClient()
-//            webChromeClient = HackyChromeClient(this@WebViewActivity)
-            webChromeClient = CustomChromeClient(fullscreenView, this)
+            webChromeClient = chromeClient
+//            webChromeClient = CustomChromeClient(fullscreenView, this)
             loadUrl("https://www.youtube.com/")
         }
     }

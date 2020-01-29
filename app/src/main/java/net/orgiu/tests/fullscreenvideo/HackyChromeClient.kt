@@ -1,11 +1,10 @@
 package net.orgiu.tests.fullscreenvideo
 
 import android.app.Activity
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.view.View
 import android.webkit.WebChromeClient
 import android.widget.FrameLayout
+import android.widget.FrameLayout.*
 
 class HackyChromeClient(private val activity: Activity) : WebChromeClient() {
 
@@ -14,32 +13,58 @@ class HackyChromeClient(private val activity: Activity) : WebChromeClient() {
     private var originalOrientation = 0
     private var originalSystemUiVisibility = 0
 
-    override fun getDefaultVideoPoster(): Bitmap? {
-        return BitmapFactory.decodeResource(activity.resources, 2130837573)
-    }
+    private var systemUi: Int
+        get() = activity.window.decorView.systemUiVisibility
+        set(value) {
+            activity.window.decorView.systemUiVisibility = value
+        }
+
+    private val root: FrameLayout
+        get() = activity.window.decorView as FrameLayout
+
+    private var requestedOrientation
+        get() = activity.requestedOrientation
+        set(value) {
+            activity.requestedOrientation = value
+        }
 
     override fun onHideCustomView() {
-        (activity.window.decorView as FrameLayout).removeView(customView)
+        root.removeView(customView)
+        systemUi = originalSystemUiVisibility
+        requestedOrientation = originalOrientation
+
+        viewCallback?.onCustomViewHidden()
         customView = null
-        activity.window.decorView.systemUiVisibility = originalSystemUiVisibility
-        activity.requestedOrientation = originalOrientation
-        viewCallback!!.onCustomViewHidden()
         viewCallback = null
     }
 
     override fun onShowCustomView(view: View?, callback: CustomViewCallback?) {
         if (customView != null) {
             onHideCustomView()
-            return
+        } else {
+            showFullscreenView(view, callback)
         }
+    }
+
+    private fun showFullscreenView(
+        view: View?,
+        callback: CustomViewCallback?
+    ) {
         customView = view
-        originalSystemUiVisibility = activity.window.decorView.systemUiVisibility
-        originalOrientation = activity.requestedOrientation
+
+        originalSystemUiVisibility = systemUi
+        originalOrientation = requestedOrientation
         viewCallback = callback
-        (activity.window.decorView as FrameLayout).addView(
-            customView,
-            FrameLayout.LayoutParams(-1, -1)
-        )
-        activity.window.decorView.systemUiVisibility = 3846
+        root.addView(customView, LayoutParams(-1, -1))
+        systemUi = REQUESTED_FLAGS
+    }
+
+    companion object {
+
+        const val REQUESTED_FLAGS = SYSTEM_UI_FLAG_HIDE_NAVIGATION or
+                SYSTEM_UI_FLAG_FULLSCREEN or
+                SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+                SYSTEM_UI_FLAG_IMMERSIVE
+
     }
 }
