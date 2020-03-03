@@ -2,23 +2,22 @@ package net.orgiu.tests.networkrequest
 
 import android.net.ConnectivityManager
 import android.net.Network
-import android.util.Log
+import androidx.lifecycle.MutableLiveData
+import net.orgiu.tests.networkrequest.NetworkResult.*
 
 class Callback : ConnectivityManager.NetworkCallback() {
 
+    val result = MutableLiveData<NetworkResult>()
+
     override fun onLost(network: Network?) {
-        Log.d(TAG, "Network lost")
+        result.postValue(DISCONNECTED)
     }
 
     override fun onLosing(network: Network?, maxMsToLive: Int) {
-        Log.d(TAG, "Losing network in the next $maxMsToLive MS")
+        result.postValue(DISCONNECTING)
     }
 
     override fun onAvailable(network: Network?) {
-        Log.d(TAG, "Network $network is available")
-    }
-
-    companion object {
-        private const val TAG = "NetworkCallback"
+        result.postValue(CONNECTED)
     }
 }

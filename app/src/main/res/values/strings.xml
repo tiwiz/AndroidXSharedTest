@@ -7,4 +7,8 @@
     <string name="biometric_prompt">Biometric Prompt</string>
     <string name="network_request_builder">Network request builder</string>
     <string name="fullscreen_webview_video">Fullscreen WebView Video</string>
+
+    <string name="messageConnected">Connected</string>
+    <string name="messageDisconnected">Disconnected</string>
+    <string name="messageDisconnecting">Losing connection</string>
 </resources>
