@@ -1,7 +1,8 @@
 package net.orgiu.tests.networkrequest
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_network_request.*
 import net.orgiu.tests.R
@@ -18,7 +19,9 @@ class NetworkRequestActivity : AppCompatActivity() {
             Observer<NetworkResult> { result ->
                 with(status) {
                     setText(result.messageResId)
-                    setTextColor(result.colorResId)
+                    setTextColor(
+                        ContextCompat.getColor(this@NetworkRequestActivity, result.colorResId)
+                    )
                 }
             })
     }
