@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.content_main.*
 import net.orgiu.tests.biometric.BiometricActivity
 import net.orgiu.tests.fullscreenvideo.WebViewActivity
 import net.orgiu.tests.networkrequest.NetworkRequestActivity
+import net.orgiu.tests.nightmode.NightModeActivity
 import net.orgiu.tests.snackbar.SnackbarActivity
 import net.orgiu.tests.textscaling.TextScalingActivity
 import net.orgiu.tests.textscaling.TextScalingDataBindingOnlyActivity
@@ -43,6 +44,10 @@ class MainActivity : AppCompatActivity() {
 
         fullscreenWebViewVideo.setOnClickListener {
             startActivity(Intent(this, WebViewActivity::class.java))
+        }
+
+        nightMode.setOnClickListener {
+            startActivity(Intent(this, NightModeActivity::class.java))
         }
     }
 

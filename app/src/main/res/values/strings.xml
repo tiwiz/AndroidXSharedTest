@@ -11,4 +11,8 @@
     <string name="messageConnected">Connected</string>
     <string name="messageDisconnected">Disconnected</string>
     <string name="messageDisconnecting">Losing connection</string>
+    <string name="follow_system_setting">Follow system setting</string>
+    <string name="force_light_mode">Force Light Mode</string>
+    <string name="force_dark_mode">Force Dark Mode</string>
+    <string name="apply_restart"><![CDATA[Apply & restart]]></string>
 </resources>

@@ -14,8 +14,11 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
+            android:name=".App"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".fullscreenvideo.WebViewActivity"/>
+        <activity android:name=".nightmode.NightModeActivity"
+                android:theme="@style/NightModeTheme"/>
+        <activity android:name=".fullscreenvideo.WebViewActivity" />
         <activity android:name=".networkrequest.NetworkRequestActivity" />
         <activity android:name=".biometric.BiometricActivity" />
         <activity android:name=".textscaling.TextScalingDataBindingOnlyActivity" />
