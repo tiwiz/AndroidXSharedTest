@@ -26,7 +26,7 @@ class NightModeActivityCallbacks(context: Context) : Application.ActivityLifecyc
 
     override fun onActivityCreated(activity: Activity?, bundle: Bundle?) {
         if(activity is NightModeActivity) {
-            val nightModeType = nightModeStorage.fetch()
+            val nightModeType = nightModeStorage.fetchNightMode()
             AppCompatDelegate.setDefaultNightMode(nightModeType.flag)
         }
     }

@@ -17,17 +17,40 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    <RadioGroup
-            android:id="@+id/group"
+    <ImageView
+            android:id="@+id/sampleImage"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@string/sample_content_description"
+            app:layout_constraintBottom_toTopOf="@+id/themeLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+            android:id="@+id/themeLabel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:text="@string/theme_label"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:layout_constraintBottom_toTopOf="@+id/themeGroup"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.6"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+            app:layout_constraintTop_toBottomOf="@+id/sampleImage" />
+
+    <RadioGroup
+            android:id="@+id/themeGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/contextLabel"
+            app:layout_constraintEnd_toEndOf="@+id/themeLabel"
+            app:layout_constraintStart_toStartOf="@+id/themeLabel"
+            app:layout_constraintTop_toBottomOf="@+id/themeLabel">
 
         <RadioButton
                 android:id="@+id/followSystem"
@@ -48,15 +71,54 @@
                 android:text="@string/force_dark_mode" />
     </RadioGroup>
 
+    <TextView
+            android:id="@+id/contextLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/context_label"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:layout_constraintEnd_toEndOf="@+id/themeGroup"
+            app:layout_constraintStart_toStartOf="@+id/themeGroup"
+            app:layout_constraintTop_toBottomOf="@+id/themeGroup"
+            app:layout_constraintBottom_toTopOf="@+id/contextGroup"/>
+
+    <RadioGroup
+            android:id="@+id/contextGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/restart"
+            app:layout_constraintEnd_toEndOf="@+id/themeGroup"
+            app:layout_constraintStart_toStartOf="@+id/themeGroup"
+            app:layout_constraintTop_toBottomOf="@+id/contextLabel">
+
+        <RadioButton
+                android:id="@+id/raioActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/activity_label" />
+
+        <RadioButton
+                android:id="@+id/radioApplication"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/application_label" />
+    </RadioGroup>
+
     <Button
             android:id="@+id/restart"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
             android:text="@string/apply_restart"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/group" />
+            app:layout_constraintTop_toBottomOf="@+id/contextGroup"
+            app:layout_constraintVertical_bias="1.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

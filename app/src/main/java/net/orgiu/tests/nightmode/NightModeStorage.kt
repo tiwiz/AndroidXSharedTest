@@ -10,13 +10,22 @@ class NightModeStorage(context: Context) {
 
     fun store(type: NightModeType) {
         storage.edit {
-            putInt(KEY, type.type)
+            putInt(NIGHT_MODE_KEY, type.type)
         }
     }
 
-    fun fetch() = NightModeType.fromType(storage.getInt(KEY, 0))
+    fun store(type: ImageContext) {
+        storage.edit {
+            putInt(CONTEXT_KEY, type.type)
+        }
+    }
+
+    fun fetchNightMode() = NightModeType.fromType(storage.getInt(NIGHT_MODE_KEY, 0))
+
+    fun fetchContext() = ImageContext.fromType(storage.getInt(CONTEXT_KEY, 1))
 
     companion object {
-        private const val KEY = "NIGHT_MODE"
+        private const val NIGHT_MODE_KEY = "NIGHT_MODE"
+        private const val CONTEXT_KEY = "CONTEXT"
     }
 }

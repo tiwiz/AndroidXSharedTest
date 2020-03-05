@@ -15,4 +15,10 @@
     <string name="force_light_mode">Force Light Mode</string>
     <string name="force_dark_mode">Force Dark Mode</string>
     <string name="apply_restart"><![CDATA[Apply & restart]]></string>
+    <string name="night_mode_title">Night mode</string>
+    <string name="theme_label">Theme</string>
+    <string name="context_label">Context</string>
+    <string name="activity_label">Activity</string>
+    <string name="application_label">Application</string>
+    <string name="sample_content_description">Sample image</string>
 </resources>

@@ -17,7 +17,8 @@
             android:name=".App"
             tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".nightmode.NightModeActivity"
-                android:theme="@style/NightModeTheme"/>
+                android:theme="@style/NightModeTheme"
+                android:label="@string/night_mode_title"/>
         <activity android:name=".fullscreenvideo.WebViewActivity" />
         <activity android:name=".networkrequest.NetworkRequestActivity" />
         <activity android:name=".biometric.BiometricActivity" />

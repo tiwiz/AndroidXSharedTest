@@ -8,13 +8,12 @@ enum class NightModeType(val type: Int, val flag: Int) {
     FORCE_DARK(2, AppCompatDelegate.MODE_NIGHT_YES);
 
     companion object {
-
         fun fromType(type: Int) =
-            when(type) {
+            when (type) {
                 0 -> FOLLOW_SYSTEM
                 1 -> FORCE_LIGHT
                 else -> FORCE_DARK
             }
-        }
+    }
 
 }
