@@ -21,4 +21,8 @@
     <string name="activity_label">Activity</string>
     <string name="application_label">Application</string>
     <string name="sample_content_description">Sample image</string>
+    <string name="add_fragment">Add fragment</string>
+    <string name="close_fragment">Close Fragment</string>
+    <string name="night_mode">Night Mode</string>
+    <string name="fragment_lifecycle">Fragment lifecycle</string>
 </resources>

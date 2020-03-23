@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import net.orgiu.tests.biometric.BiometricActivity
+import net.orgiu.tests.fragmentslifecycle.FragmentListenerActivity
 import net.orgiu.tests.fullscreenvideo.WebViewActivity
 import net.orgiu.tests.networkrequest.NetworkRequestActivity
 import net.orgiu.tests.nightmode.NightModeActivity
@@ -48,6 +50,10 @@ class MainActivity : AppCompatActivity() {
 
         nightMode.setOnClickListener {
             startActivity(Intent(this, NightModeActivity::class.java))
+        }
+
+        fragmentLifecycle.setOnClickListener {
+            startActivity(Intent(this, FragmentListenerActivity::class.java))
         }
     }
 
