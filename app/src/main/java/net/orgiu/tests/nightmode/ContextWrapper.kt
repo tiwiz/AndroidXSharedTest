@@ -12,8 +12,8 @@ class ContextWrapper(private val activity: Activity) {
 
     fun getDrawable(@DrawableRes id: Int) : Drawable =
         if (nightModeStorage.fetchContext() == ImageContext.APPLICATION) {
-            activity.application.resources.getDrawable(id, activity.application.theme)
+            activity.application.resources.getDrawable(id, activity.application.theme)!!
         } else {
-            activity.getDrawable(id)
+            activity.getDrawable(id)!!
         }
 }
