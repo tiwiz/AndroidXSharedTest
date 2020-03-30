@@ -7,6 +7,9 @@ android {
     dataBinding {
         enabled = true
     }
+    viewBinding {
+        enabled = true
+    }
     compileSdkVersion 29
     defaultConfig {
         applicationId "net.orgiu.tests"

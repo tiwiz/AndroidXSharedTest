@@ -1,60 +1,36 @@
 package net.orgiu.tests
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.content_main.*
-import net.orgiu.tests.biometric.BiometricActivity
-import net.orgiu.tests.fragmentslifecycle.FragmentListenerActivity
-import net.orgiu.tests.fullscreenvideo.WebViewActivity
-import net.orgiu.tests.networkrequest.NetworkRequestActivity
-import net.orgiu.tests.nightmode.NightModeActivity
-import net.orgiu.tests.snackbar.SnackbarActivity
-import net.orgiu.tests.textscaling.TextScalingActivity
-import net.orgiu.tests.textscaling.TextScalingDataBindingOnlyActivity
+import net.orgiu.tests.databinding.ActivityMainBinding
+import net.orgiu.tests.main.Functionality
+import net.orgiu.tests.main.FunctionalityAdapter
+import net.orgiu.tests.main.OnFunctionalityChosenListener
+import net.orgiu.tests.main.launchBy
+import kotlin.properties.Delegates
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnFunctionalityChosenListener {
+
+    private var binding: ActivityMainBinding by Delegates.notNull()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         setSupportActionBar(toolbar)
 
-        snackbar.setOnClickListener {
-            startActivity(Intent(this, SnackbarActivity::class.java))
+        with(binding.functions) {
+            layoutManager = LinearLayoutManager(context)
+            adapter = FunctionalityAdapter(this@MainActivity)
         }
+    }
 
-        mixedTextScaling.setOnClickListener {
-            startActivity(Intent(this, TextScalingActivity::class.java))
-        }
-
-        dataBindingOnlyTextScaling.setOnClickListener {
-            startActivity(Intent(this, TextScalingDataBindingOnlyActivity::class.java))
-        }
-
-        biometricPrompt.setOnClickListener {
-            startActivity(Intent(this, BiometricActivity::class.java))
-        }
-
-        networkRequestBuilder.setOnClickListener {
-            startActivity(Intent(this, NetworkRequestActivity::class.java))
-        }
-
-        fullscreenWebViewVideo.setOnClickListener {
-            startActivity(Intent(this, WebViewActivity::class.java))
-        }
-
-        nightMode.setOnClickListener {
-            startActivity(Intent(this, NightModeActivity::class.java))
-        }
-
-        fragmentLifecycle.setOnClickListener {
-            startActivity(Intent(this, FragmentListenerActivity::class.java))
-        }
+    override fun onFunctionalityChosen(functionality: Functionality<*>) {
+        launchBy(functionality)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
