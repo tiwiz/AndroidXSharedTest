@@ -25,4 +25,5 @@
     <string name="close_fragment">Close Fragment</string>
     <string name="night_mode">Night Mode</string>
     <string name="fragment_lifecycle">Fragment lifecycle</string>
+    <string name="lce">LCE</string>
 </resources>
