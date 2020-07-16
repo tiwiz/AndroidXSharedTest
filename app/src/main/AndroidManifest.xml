@@ -16,7 +16,8 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".lce.LceActivity"></activity>
+        <activity android:name=".constracts.ContractsActivity"></activity>
+        <activity android:name=".lce.LceActivity" />
         <activity android:name=".fragmentslifecycle.FragmentListenerActivity" />
         <activity
                 android:name=".nightmode.NightModeActivity"
