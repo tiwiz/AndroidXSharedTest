@@ -6,4 +6,95 @@
         android:layout_height="match_parent"
         tools:context=".constracts.ContractsActivity">
 
+    <Button
+            android:id="@+id/btnRequestGPSPermission"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Request location permission"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+            android:id="@+id/btnRequestPicture"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Request Picture"
+            app:layout_constraintEnd_toEndOf="@+id/btnRequestGPSPermission"
+            app:layout_constraintStart_toStartOf="@+id/btnRequestGPSPermission"
+            app:layout_constraintTop_toBottomOf="@+id/imgFinePermission" />
+
+    <ImageView
+            android:id="@+id/resultImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnOpenSettingsScreen"
+            app:layout_constraintEnd_toEndOf="@+id/btnRequestPicture"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/btnRequestPicture"
+            app:layout_constraintTop_toBottomOf="@+id/btnRequestPicture"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <Button
+            android:id="@+id/btnOpenSettingsScreen"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Open settings screen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/resultImage"
+            app:layout_constraintStart_toStartOf="@+id/resultImage"
+            app:layout_constraintTop_toBottomOf="@+id/resultImage" />
+
+    <TextView
+            android:id="@+id/txtCoarseLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="sans-serif-thin"
+            android:text="Coarse location permission"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@+id/imgCoarsePermission"
+            app:layout_constraintEnd_toStartOf="@+id/imgCoarsePermission"
+            app:layout_constraintStart_toStartOf="@+id/btnRequestGPSPermission"
+            app:layout_constraintTop_toTopOf="@+id/imgCoarsePermission" />
+
+    <TextView
+            android:id="@+id/txtFineLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="sans-serif-thin"
+            android:text="Fine location permission"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@+id/imgFinePermission"
+            app:layout_constraintEnd_toStartOf="@+id/imgFinePermission"
+            app:layout_constraintStart_toStartOf="@+id/txtCoarseLocation"
+            app:layout_constraintTop_toTopOf="@+id/imgFinePermission" />
+
+    <ImageView
+            android:id="@+id/imgCoarsePermission"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/btnRequestGPSPermission"
+            app:layout_constraintTop_toBottomOf="@+id/btnRequestGPSPermission"
+            tools:srcCompat="@drawable/ic_lock_open" />
+
+    <ImageView
+            android:id="@+id/imgFinePermission"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/imgCoarsePermission"
+            app:layout_constraintTop_toBottomOf="@+id/imgCoarsePermission"
+            tools:srcCompat="@drawable/ic_lock_closed" />
 </androidx.constraintlayout.widget.ConstraintLayout>
