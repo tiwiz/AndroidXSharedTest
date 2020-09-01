@@ -8,6 +8,7 @@ import net.orgiu.tests.biometric.BiometricActivity
 import net.orgiu.tests.constracts.ContractsActivity
 import net.orgiu.tests.fragmentslifecycle.FragmentListenerActivity
 import net.orgiu.tests.fullscreenvideo.WebViewActivity
+import net.orgiu.tests.intentsender.IntentSenderActivity
 import net.orgiu.tests.lce.LceActivity
 import net.orgiu.tests.networkrequest.NetworkRequestActivity
 import net.orgiu.tests.nightmode.NightModeActivity
@@ -33,7 +34,8 @@ val functions = arrayOf(
     Functionality(R.string.night_mode, NightModeActivity::class.java),
     Functionality(R.string.fragment_lifecycle, FragmentListenerActivity::class.java),
     Functionality(R.string.lce, LceActivity::class.java),
-    Functionality(R.string.contracts, ContractsActivity::class.java)
+    Functionality(R.string.contracts, ContractsActivity::class.java),
+    Functionality(R.string.intent_sender, IntentSenderActivity::class.java)
 )
 
 fun AppCompatActivity.launchBy(functionality: Functionality<*>) {

@@ -27,4 +27,5 @@
     <string name="fragment_lifecycle">Fragment lifecycle</string>
     <string name="lce">LCE</string>
     <string name="contracts">Activity Results Contracts</string>
+    <string name="intent_sender">Intent Sender</string>
 </resources>

@@ -18,6 +18,12 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
+        <receiver
+                android:name=".intentsender.ShareComponentReceiver"
+                android:enabled="true"
+                android:exported="true"></receiver>
+
+        <activity android:name=".intentsender.IntentSenderActivity" />
         <activity android:name=".constracts.ContractsActivity" />
         <activity android:name=".lce.LceActivity" />
         <activity android:name=".fragmentslifecycle.FragmentListenerActivity" />
