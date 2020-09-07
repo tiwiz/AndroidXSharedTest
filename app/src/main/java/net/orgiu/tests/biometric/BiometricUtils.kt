@@ -6,6 +6,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.asExecutor
 import kotlinx.coroutines.suspendCancellableCoroutine
+import java.util.concurrent.Executor
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 
@@ -18,19 +19,29 @@ fun AppCompatActivity.buildBiometricPrompt(
     BiometricPrompt(
         this,
         dispatcher.asExecutor(),
-        object : BiometricPrompt.AuthenticationCallback() {
-            override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
-                error(errorCode, errString.toString())
-            }
+        callback())
 
-            override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
-                success()
-            }
+fun callback() = object : BiometricPrompt.AuthenticationCallback() {
+    override fun onAuthenticationError(errorCode: Int,
+            errString: CharSequence) {
+        /** DO THINGS **/
+    }
 
-            override fun onAuthenticationFailed() {
-                failure()
-            }
-        })
+    override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
+        /** DO THINGS **/
+    }
+
+    override fun onAuthenticationFailed() {
+        /** DO THINGS **/
+    }
+}
+
+fun authanticate(activity: AppCompatActivity, val executor: Executor) {
+    val biometricPrompt = BiometricPrompt(
+        activity,
+        executor,
+        callback())
+}
 
 suspend fun AppCompatActivity.authenticate(
     info: BiometricPrompt.PromptInfo,
@@ -60,9 +71,11 @@ sealed class BiometricException : Exception()
 data class BiometricError(val errorCode: Int, val errorMessage: String) : BiometricException()
 class BiometricFailure : BiometricException()
 
-fun buildPromptInfo() = BiometricPrompt.PromptInfo.Builder()
-    .setTitle("Biometric authentication sample.")
-    .setSubtitle("I'm a subtitle.")
-    .setDescription("I'm a description")
-    .setNegativeButtonText("Cancel")
-    .build()
+fun buildPromptInfo() =
+    BiometricPrompt.PromptInfo
+        .Builder()
+        .setTitle("Biometric authentication sample.")
+        .setSubtitle("I'm a subtitle.")
+        .setDescription("I'm a description")
+        .setNegativeButtonText("Cancel")
+        .build()
