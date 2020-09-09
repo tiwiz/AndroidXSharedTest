@@ -36,13 +36,6 @@ fun callback() = object : BiometricPrompt.AuthenticationCallback() {
     }
 }
 
-fun authanticate(activity: AppCompatActivity, val executor: Executor) {
-    val biometricPrompt = BiometricPrompt(
-        activity,
-        executor,
-        callback())
-}
-
 suspend fun AppCompatActivity.authenticate(
     info: BiometricPrompt.PromptInfo,
     dispatcher: CoroutineDispatcher = Dispatchers.Default

@@ -1,6 +1,7 @@
 package net.orgiu.tests.constracts
 
 import android.Manifest
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.DrawableRes
@@ -54,6 +55,10 @@ class ContractsActivity : AppCompatActivity() {
 
         binding.btnOpenSettingsScreen.setOnClickListener {
             openAppSettingsContract.launch(null)
+        }
+
+        binding.btnExample.setOnClickListener {
+            startActivity(Intent(this, PermissionExampleActivity::class.java))
         }
     }
 

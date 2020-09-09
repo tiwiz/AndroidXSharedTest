@@ -18,10 +18,12 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".constracts.PermissionExampleActivity"></activity>
+
         <receiver
                 android:name=".intentsender.ShareComponentReceiver"
                 android:enabled="true"
-                android:exported="true"></receiver>
+                android:exported="true" />
 
         <activity android:name=".intentsender.IntentSenderActivity" />
         <activity android:name=".constracts.ContractsActivity" />
