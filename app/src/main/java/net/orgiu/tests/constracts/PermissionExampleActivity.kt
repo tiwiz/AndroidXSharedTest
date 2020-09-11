@@ -25,7 +25,7 @@ class PermissionExampleActivity : AppCompatActivity() {
             if (isGranted) {
                 onPermissionGranted()
             } else {
-                onMoreInfoNeeded()
+                onPermissionNotGranted()
             }
         }
 
@@ -45,6 +45,10 @@ class PermissionExampleActivity : AppCompatActivity() {
     }
 
     private fun onMoreInfoNeeded() {
+        binding.permissionResult.text = "RATIONALE SHOULD BE SHOWN"
+    }
+
+    private fun onPermissionNotGranted() {
         binding.permissionResult.text = "PERMISSION HAS NOT BEEN GRANTED"
     }
 }
