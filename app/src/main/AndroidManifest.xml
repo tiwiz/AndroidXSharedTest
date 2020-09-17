@@ -18,7 +18,8 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".constracts.PermissionExampleActivity"></activity>
+        <activity android:name=".constracts.CustomPermissionActivity"></activity>
+        <activity android:name=".constracts.PermissionExampleActivity" />
 
         <receiver
                 android:name=".intentsender.ShareComponentReceiver"
