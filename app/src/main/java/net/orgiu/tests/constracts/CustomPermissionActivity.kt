@@ -3,7 +3,6 @@ package net.orgiu.tests.constracts
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import net.orgiu.tests.databinding.ActivityContractsBinding
 import net.orgiu.tests.databinding.ActivityCustomPermissionBinding
 
 class CustomPermissionActivity : AppCompatActivity() {
@@ -13,7 +12,7 @@ class CustomPermissionActivity : AppCompatActivity() {
     }
 
     private val openAppSettingsContract =
-        registerForActivityResult(PermissionsSettingsContract()) {
+        registerForActivityResult(SystemSettingsContract()) {
             Toast.makeText(this, "Came back!", Toast.LENGTH_SHORT).show()
         }
 

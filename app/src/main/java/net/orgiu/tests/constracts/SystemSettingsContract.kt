@@ -4,9 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
+import android.util.Log
 import androidx.activity.result.contract.ActivityResultContract
+import timber.log.Timber
 
-class PermissionsSettingsContract : ActivityResultContract<Nothing, Boolean>() {
+class SystemSettingsContract : ActivityResultContract<Nothing, Boolean>() {
 
     override fun createIntent(context: Context, input: Nothing?): Intent {
         return Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
@@ -16,5 +18,8 @@ class PermissionsSettingsContract : ActivityResultContract<Nothing, Boolean>() {
             }
     }
 
-    override fun parseResult(resultCode: Int, intent: Intent?): Boolean = true
+    override fun parseResult(resultCode: Int, intent: Intent?): Boolean {
+        Timber.d("resultCode: $resultCode")
+        return true
+    }
 }

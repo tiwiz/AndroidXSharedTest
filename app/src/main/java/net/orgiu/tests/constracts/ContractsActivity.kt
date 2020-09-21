@@ -37,7 +37,7 @@ class ContractsActivity : AppCompatActivity() {
         }
 
     private val openAppSettingsContract =
-        registerForActivityResult(PermissionsSettingsContract()) {
+        registerForActivityResult(SystemSettingsContract()) {
             /* DO NOTHING */
         }
 
