@@ -13,6 +13,7 @@ import net.orgiu.tests.lce.LceActivity
 import net.orgiu.tests.networkrequest.NetworkRequestActivity
 import net.orgiu.tests.nightmode.NightModeActivity
 import net.orgiu.tests.snackbar.SnackbarActivity
+import net.orgiu.tests.task.affinity.TaskAffinityActivity
 import net.orgiu.tests.textscaling.TextScalingActivity
 import net.orgiu.tests.textscaling.TextScalingDataBindingOnlyActivity
 
@@ -35,7 +36,8 @@ val functions = arrayOf(
     Functionality(R.string.fragment_lifecycle, FragmentListenerActivity::class.java),
     Functionality(R.string.lce, LceActivity::class.java),
     Functionality(R.string.contracts, ContractsActivity::class.java),
-    Functionality(R.string.intent_sender, IntentSenderActivity::class.java)
+    Functionality(R.string.intent_sender, IntentSenderActivity::class.java),
+    Functionality(R.string.task_affinity, TaskAffinityActivity::class.java)
 )
 
 fun AppCompatActivity.launchBy(functionality: Functionality<*>) {

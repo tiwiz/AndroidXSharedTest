@@ -28,4 +28,5 @@
     <string name="lce">LCE</string>
     <string name="contracts">Activity Results Contracts</string>
     <string name="intent_sender">Intent Sender</string>
+    <string name="task_affinity">Task Affinity</string>
 </resources>

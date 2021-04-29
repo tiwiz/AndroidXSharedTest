@@ -18,7 +18,10 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".constracts.CustomPermissionActivity"></activity>
+        <activity
+                android:name=".task.affinity.TaskAffinityActivity"
+                android:taskAffinity=".TheOtherTask" />
+        <activity android:name=".constracts.CustomPermissionActivity" />
         <activity android:name=".constracts.PermissionExampleActivity" />
 
         <receiver
