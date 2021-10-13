@@ -40,13 +40,12 @@
         <activity android:name=".fullscreenvideo.WebViewActivity" />
         <activity android:name=".networkrequest.NetworkRequestActivity" />
         <activity android:name=".biometric.BiometricActivity" />
-        <activity android:name=".textscaling.TextScalingDataBindingOnlyActivity" />
-        <activity android:name=".textscaling.TextScalingActivity" />
         <activity android:name=".snackbar.SnackbarActivity" />
         <activity
                 android:name=".MainActivity"
                 android:label="@string/app_name"
-                android:theme="@style/AppTheme.NoActionBar">
+                android:theme="@style/AppTheme.NoActionBar"
+                android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

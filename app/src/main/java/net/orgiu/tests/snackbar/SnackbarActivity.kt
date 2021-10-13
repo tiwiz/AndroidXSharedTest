@@ -3,26 +3,29 @@ package net.orgiu.tests.snackbar
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.activity_snackbar.*
 import net.orgiu.tests.R
+import net.orgiu.tests.databinding.ActivitySnackbarBinding
 
 class SnackbarActivity : AppCompatActivity() {
 
     private val sampleAdapter by lazy { SampleItemAdapter(this, this::onItemClick) }
     private val sampleLayoutManager by lazy { LinearLayoutManager(this) }
 
+    private lateinit var binding : ActivitySnackbarBinding
+
     private val snackbarManager by lazy {
         SnackbarManager.Builder()
-            .with(sampleList)
-            .inside(sampleRoot)
+            .with(binding.sampleList)
+            .inside(binding.sampleRoot)
             .build()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_snackbar)
+        binding = ActivitySnackbarBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        with(sampleList) {
+        with(binding.sampleList) {
             adapter = sampleAdapter
             layoutManager = sampleLayoutManager
         }

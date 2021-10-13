@@ -9,15 +9,15 @@ class Callback : ConnectivityManager.NetworkCallback() {
 
     val result = MutableLiveData<NetworkResult>()
 
-    override fun onLost(network: Network?) {
+    override fun onLost(network: Network) {
         result.postValue(DISCONNECTED)
     }
 
-    override fun onLosing(network: Network?, maxMsToLive: Int) {
+    override fun onLosing(network: Network, maxMsToLive: Int) {
         result.postValue(DISCONNECTING)
     }
 
-    override fun onAvailable(network: Network?) {
+    override fun onAvailable(network: Network) {
         result.postValue(CONNECTED)
     }
 }

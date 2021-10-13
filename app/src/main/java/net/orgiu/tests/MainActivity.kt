@@ -5,7 +5,6 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.activity_main.*
 import net.orgiu.tests.databinding.ActivityMainBinding
 import net.orgiu.tests.main.Functionality
 import net.orgiu.tests.main.FunctionalityAdapter
@@ -21,7 +20,7 @@ class MainActivity : AppCompatActivity(), OnFunctionalityChosenListener {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding.toolbar)
 
         with(binding.functions) {
             layoutManager = LinearLayoutManager(context)

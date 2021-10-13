@@ -2,11 +2,10 @@ package net.orgiu.tests.biometric
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.activity_biometric.*
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import net.orgiu.tests.R
 
@@ -20,7 +19,7 @@ class BiometricActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_biometric)
 
-        authenticate.setOnClickListener {
+        contentView.findViewById<Button>(R.id.authenticate).setOnClickListener {
             runAuthentication()
         }
     }

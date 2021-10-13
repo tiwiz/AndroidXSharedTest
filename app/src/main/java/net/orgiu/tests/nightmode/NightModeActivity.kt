@@ -4,8 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import kotlinx.android.synthetic.main.activity_night_mode.*
 import net.orgiu.tests.R
+import net.orgiu.tests.databinding.ActivityNightModeBinding
 
 class NightModeActivity : AppCompatActivity() {
 
@@ -17,13 +17,16 @@ class NightModeActivity : AppCompatActivity() {
         ContextWrapper(this)
     }
 
+    private lateinit var binding : ActivityNightModeBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_night_mode)
+        binding = ActivityNightModeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding.toolbar)
 
-        restart.setOnClickListener {
+        binding.restart.setOnClickListener {
             storeThemeChoice()
             storeContextChoice()
             recreate()
@@ -33,7 +36,7 @@ class NightModeActivity : AppCompatActivity() {
     }
 
     private fun storeContextChoice() {
-        val contextType = if (contextGroup.checkedRadioButtonId == R.id.raioActivity) {
+        val contextType = if (binding.contextGroup.checkedRadioButtonId == R.id.raioActivity) {
             ImageContext.ACTIVITY
         } else {
             ImageContext.APPLICATION
@@ -43,7 +46,7 @@ class NightModeActivity : AppCompatActivity() {
     }
 
     private fun storeThemeChoice() {
-        val type = when (themeGroup.checkedRadioButtonId) {
+        val type = when (binding.themeGroup.checkedRadioButtonId) {
             R.id.followSystem -> NightModeType.FOLLOW_SYSTEM
             R.id.forceLight -> NightModeType.FORCE_LIGHT
             else -> NightModeType.FORCE_DARK
@@ -54,11 +57,11 @@ class NightModeActivity : AppCompatActivity() {
 
     private fun loadDrawable() {
         val drawable = contextWrapper.getDrawable(R.drawable.ic_adb)
-        sampleImage.setImageDrawable(drawable)
+        binding.sampleImage.setImageDrawable(drawable)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menu?.let {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menu.let {
             addIconTo(menu)
         }
         return super.onCreateOptionsMenu(menu)
@@ -81,13 +84,13 @@ class NightModeActivity : AppCompatActivity() {
             else -> R.id.forceDark
         }
 
-        themeGroup.check(id)
+        binding.themeGroup.check(id)
 
         val contextId = when(nightModeStorage.fetchContext()) {
             ImageContext.APPLICATION -> R.id.radioApplication
             else -> R.id.raioActivity
         }
 
-        contextGroup.check(contextId)
+        binding.contextGroup.check(contextId)
     }
 }

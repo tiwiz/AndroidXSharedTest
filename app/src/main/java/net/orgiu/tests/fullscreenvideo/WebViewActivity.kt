@@ -2,14 +2,18 @@ package net.orgiu.tests.fullscreenvideo
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.webkit.WebView
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_web_view.*
 import net.orgiu.tests.R
 
 
 class WebViewActivity : AppCompatActivity() {
 
     private val chromeClient by lazy { HackyChromeClient(this) }
+
+    private val webView by lazy {
+        findViewById<WebView>(R.id.webView)
+    }
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {

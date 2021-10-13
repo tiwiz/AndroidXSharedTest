@@ -10,7 +10,7 @@ import timber.log.Timber
 
 class SystemSettingsContract : ActivityResultContract<Nothing, Boolean>() {
 
-    override fun createIntent(context: Context, input: Nothing?): Intent {
+    override fun createIntent(context: Context, input: Nothing): Intent {
         return Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             .apply {
