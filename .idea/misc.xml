@@ -9,7 +9,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.328125" />
+        <entry key="app/src/main/res/layout/activity_network_testing.xml" value="0.328125" />
         <entry key="app/src/main/res/layout/activity_text_scaling_data_binding_only.xml" value="0.328125" />
+        <entry key="app/src/main/res/layout/content_network_testing.xml" value="0.328125" />
       </map>
     </option>
   </component>

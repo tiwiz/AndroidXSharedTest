@@ -11,6 +11,7 @@ import net.orgiu.tests.fullscreenvideo.WebViewActivity
 import net.orgiu.tests.intentsender.IntentSenderActivity
 import net.orgiu.tests.lce.LceActivity
 import net.orgiu.tests.networkrequest.NetworkRequestActivity
+import net.orgiu.tests.networktesting.NetworkTestingActivity
 import net.orgiu.tests.nightmode.NightModeActivity
 import net.orgiu.tests.snackbar.SnackbarActivity
 import net.orgiu.tests.task.affinity.TaskAffinityActivity
@@ -30,7 +31,8 @@ val functions = arrayOf(
     Functionality(R.string.lce, LceActivity::class.java),
     Functionality(R.string.contracts, ContractsActivity::class.java),
     Functionality(R.string.intent_sender, IntentSenderActivity::class.java),
-    Functionality(R.string.task_affinity, TaskAffinityActivity::class.java)
+    Functionality(R.string.task_affinity, TaskAffinityActivity::class.java),
+    Functionality(R.string.network_testing, NetworkTestingActivity::class.java)
 )
 
 fun AppCompatActivity.launchBy(functionality: Functionality<*>) {
